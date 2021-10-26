@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:healthpayments/screens/accountbalance.dart';
+import 'package:healthpayments/screens/usagehistory.dart';
 import 'package:healthpayments/screens/credits.dart';
 import 'package:healthpayments/screens/item_menu.dart';
-import 'package:healthpayments/screens/users.dart';
+import 'package:healthpayments/screens/accreditednetwork.dart';
 
-class MainScreen extends StatelessWidget {
-  /// => Main screen activated after User Login and that presents the main functions of the application
-  const MainScreen({Key? key}) : super(key: key);
+class MainMenu extends StatelessWidget {
+  /// => Main menu activated after User Login and that presents the main functions of the application
+  const MainMenu({Key? key}) : super(key: key);
+  final double saldoDisponivel = 1210.0;
+  final String namePerson = 'Alberto Techera';
 
   @override
   Widget build(BuildContext context) {
@@ -22,44 +24,68 @@ class MainScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Container(
-          height: 100,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            border: Border(
-              top: BorderSide(
-                  color: Colors.grey, width: 2.0, style: BorderStyle.solid),
-              bottom: BorderSide(
-                  color: Colors.grey, width: 2.0, style: BorderStyle.solid),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              "Cliente : $namePerson ",
+              textAlign: TextAlign.left,
+              style: TextStyle(
+                fontSize: 16.0,
+                //backgroundColor: Colors.green,
+                color: Colors.green,
+              ),
             ),
-          ),
-          child: ListView(
-            scrollDirection: Axis.horizontal,
-            children: [
-              ItemMenu(
-                onClickItem: () => _showScreen(context, ShowAccountBalance()),
-                labelItem: 'Saldo',
-                iconItem: Icons.monetization_on,
+            Text(
+              'Saldo :  $saldoDisponivel ',
+              //textAlign: TextAlign.left,
+              style: TextStyle(
+                fontSize: 16.0,
+                //      backgroundColor: Colors.green,
+                color: Colors.green,
               ),
-              ItemMenu(
-                onClickItem: () => _showScreen(context,ShowUsers() ),
-                labelItem: 'Usuários',
-                iconItem: Icons.person,
+            ),
+            Padding(padding: const EdgeInsets.all(8.0)),
+            Container(
+              height: 100,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                border: Border(
+                  top: BorderSide(
+                      color: Colors.grey, width: 2.0, style: BorderStyle.solid),
+                  bottom: BorderSide(
+                      color: Colors.grey, width: 2.0, style: BorderStyle.solid),
+                ),
               ),
-              ItemMenu(
-                onClickItem: () => _showScreen(context,ShowCredits()),
-                labelItem: 'Créditos',
-                iconItem: Icons.money,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  ItemMenu(
+                    onClickItem: () =>
+                        _showScreen(context, ShowUsageHistory()),
+                    labelItem: 'Atendimentos',
+                    iconItem: Icons.health_and_safety_sharp,
+                  ),
+                  ItemMenu(
+                    onClickItem: () => _showScreen(context, ShowAccreditedNetwork()),
+                    labelItem: 'Rede Credenciada',
+                    iconItem: Icons.person,
+                  ),
+                  ItemMenu(
+                    onClickItem: () => _showScreen(context, ShowCredits()),
+                    labelItem: 'Créditos',
+                    iconItem: Icons.money,
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
   }
 
-
-  _showScreen(BuildContext context, Widget widget ) {
+  _showScreen(BuildContext context, Widget widget) {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) => widget,

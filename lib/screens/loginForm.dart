@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:healthpayments/screens/mainscreen.dart';
+import 'package:healthpayments/screens/mainMenu.dart';
 import 'package:healthpayments/store/config.dart';
 
 class LoginForm extends StatefulWidget {
@@ -53,7 +53,7 @@ class _LoginFormState extends State<LoginForm> {
                 keyboardType: TextInputType.number,
                 controller: _loginPassword,
                 obscureText: true,
-                obscuringCharacter: "#",
+                obscuringCharacter: "*",
                 style: TextStyle(
                   fontSize: 16.0,
                 ),
@@ -100,6 +100,6 @@ class _LoginFormState extends State<LoginForm> {
 
   void _validaSenha(BuildContext context) {
     Navigator.of(context)
-        .push(MaterialPageRoute(builder: (context) => MainScreen()));
+        .push(MaterialPageRoute(builder: (context) => MainMenu()));
   }
 }

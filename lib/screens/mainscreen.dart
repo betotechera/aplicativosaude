@@ -1,12 +1,14 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:healthpayments/models/servicesperformed.dart';
 import 'package:healthpayments/store/config.dart';
 
 class MainScreen extends StatelessWidget {
-  final double saldoDisponivel = 1200.0;
+  /// => Main screen activated after User Login and that presents the main functions of the application
+  final double saldoDisponivel = 1210.0;
   final String namePerson = 'Alberto Techera';
 
-  /// => Main screen activated after User Login and that presents the main functions of the application
+
   const MainScreen({Key? key}) : super(key: key);
 
   @override
@@ -25,7 +27,7 @@ class MainScreen extends StatelessWidget {
         body: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Container(
-            height: 120,
+            height: 160,
             width: 340,
             padding: EdgeInsets.all(8.0),
             decoration: BoxDecoration(
@@ -54,23 +56,25 @@ class MainScreen extends StatelessWidget {
                     fontSize: 24.0,
                   ),
                 ),
-                ListView.builder(itemBuilder: (context, index) {
-                  final List<ServicePerformed> servicesPerformed = [
-                    ServicePerformed(
-                        'Consulta Medica',
-                        '1001-4 Consulta Medica',
-                        DateTime(2021, 08, 2, 16, 0, 0),
-                        '80,0'),
-                    ServicePerformed('SADT', '15.01.001-0 Eletrocardiograma',
-                        DateTime(2021, 08, 2, 16, 0, 0), '80,0'),
-                    ServicePerformed(
-                        'Consulta Medica',
-                        '1001-4 Consulta Medica',
-                        DateTime(2021, 09, 22, 10, 0, 0),
-                        '80,0')
-                  ];
-                  return ServicePerformedItem(servicesPerformed);
-                }),
+                ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      final List<ServicePerformed> servicesPerformed = [
+                        ServicePerformed('Consulta', '1001-4 Consulta Medica',
+                            DateTime(2021, 08, 2, 16, 0, 0), '80,0'),
+                        ServicePerformed(
+                            'SADT',
+                            '15.01.001-0 Eletrocardiograma',
+                            DateTime(2021, 08, 2, 16, 0, 0),
+                            '80,0'),
+                        ServicePerformed(
+                            'Consulta Medica',
+                            '1001-4 Consulta Medica',
+                            DateTime(2021, 09, 22, 10, 0, 0),
+                            '80,0')
+                      ];
+                      return ServicePerformedItem(servicesPerformed);
+                    }),
               ],
             ),
           ),
@@ -87,23 +91,22 @@ class MainScreen extends StatelessWidget {
 }
 
 class ServicePerformedItem extends StatelessWidget {
-  final List servicePerformed;
+  final List servicePerformedItem;
 
-  ServicePerformedItem(
-      this.servicePerformed );
+  ServicePerformedItem(this.servicePerformedItem);
 
   @override
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
         title: Text(
-            servicePerformed.serviceType,
+          'servicePerformedItem',
           style: TextStyle(
             fontSize: 24.0,
           ),
         ),
         subtitle: Text(
-          servicePerformed.events,
+          'servicePerformed.events',
           style: TextStyle(
             fontSize: 16.0,
           ),

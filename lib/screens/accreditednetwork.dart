@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 
-class ShowUsers extends StatelessWidget {
-  const ShowUsers ({Key? key}) : super(key: key);
+class ShowAccreditedNetwork extends StatelessWidget {
+  /// => Allows consultation of the accredited health network
+  const ShowAccreditedNetwork ({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Créditos'),),
+      appBar: AppBar(title: Text('Credenciados'),),
       body: Container(
         alignment: Alignment.center,
         child: Text(
-          'Tela de Usuários',
+          'Tela de consulta rede credenciada',
           style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
         ),
       ),
