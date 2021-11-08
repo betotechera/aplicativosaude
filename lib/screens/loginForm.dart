@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:healthpayments/screens/mainMenu.dart';
+import 'package:healthpayments/screens/mainmenu.dart';
 import 'package:healthpayments/store/config.dart';
 
 class LoginForm extends StatefulWidget {

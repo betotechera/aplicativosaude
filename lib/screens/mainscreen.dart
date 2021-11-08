@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:healthpayments/models/servicesperformed.dart';
+import 'package:healthpayments/screens/usagehistory.dart';
 import 'package:healthpayments/store/config.dart';
 
 class MainScreen extends StatelessWidget {
@@ -85,32 +86,6 @@ class MainScreen extends StatelessWidget {
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) => widget,
-      ),
-    );
-  }
-}
-
-class ServicePerformedItem extends StatelessWidget {
-  final List servicePerformedItem;
-
-  ServicePerformedItem(this.servicePerformedItem);
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      child: ListTile(
-        title: Text(
-          'servicePerformedItem',
-          style: TextStyle(
-            fontSize: 24.0,
-          ),
-        ),
-        subtitle: Text(
-          'servicePerformed.events',
-          style: TextStyle(
-            fontSize: 16.0,
-          ),
-        ),
       ),
     );
   }
