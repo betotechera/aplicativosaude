@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:healthpayments/screens/loginForm.dart';
+import 'package:healthpayments/example/carouselfullimage.dart';
 import 'package:healthpayments/store/config.dart';
 
 void main() {
@@ -7,7 +7,7 @@ void main() {
 }
 
 class HealthPay extends StatelessWidget {
-  // => Sets the application theme configuration by accessing the configuration file.
+  /// => Sets the application theme configuration by accessing the configuration file.
   // Copyright : Alberto Techera
   @override
   Widget build(BuildContext context) {
@@ -18,7 +18,7 @@ class HealthPay extends StatelessWidget {
         colorScheme: ColorScheme.fromSwatch(primarySwatch:Colors.green)
             .copyWith(secondary: Config.colorSecondary),
       ),
-      home: LoginForm()
+      home: CarouselFullImage()
     );
   }
 }
