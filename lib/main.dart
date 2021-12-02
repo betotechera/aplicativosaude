@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:healthpayments/example/carouselfullimage.dart';
+import 'package:healthpayments/screens/carouselfullimage.dart';
 import 'package:healthpayments/store/config.dart';
 
 void main() {

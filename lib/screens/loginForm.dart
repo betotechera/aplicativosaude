@@ -1,3 +1,4 @@
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:healthpayments/screens/mainmenu.dart';
 import 'package:healthpayments/store/config.dart';
@@ -14,6 +15,7 @@ class LoginForm extends StatefulWidget {
 class _LoginFormState extends State<LoginForm> {
   final TextEditingController _loginEmail = TextEditingController();
   final TextEditingController _loginPassword = TextEditingController();
+  bool _isValid = false;
 
   @override
   Widget build(BuildContext context) {
@@ -28,10 +30,14 @@ class _LoginFormState extends State<LoginForm> {
               child: TextFormField(
                 controller: _loginEmail,
                 keyboardType: TextInputType.emailAddress,
-                validator: (String? value) {
-                  if (value != null && value.contains('@'))
-                    return 'Do not use the @ char.';
-                },
+                onChanged: (value) => {
+                  setState (() { _isValid = EmailValidator.validate(value);
+                }),
+                }, 
+                // validator: (String? value) {
+                //   if (value != null && value.contains('@'))
+                //     return 'Do not use the @ char.';
+                // },
                 style: TextStyle(
                   fontSize: 16,
                 ),
@@ -44,25 +50,26 @@ class _LoginFormState extends State<LoginForm> {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: TextFormField(
-                validator: (String? checkpass) {
-                  if (checkpass!.isEmpty) {
-                    return "Pasaword deve ser preenchida";
-                  }
-                },
-                keyboardType: TextInputType.number,
-                controller: _loginPassword,
-                obscureText: true,
-                obscuringCharacter: "*",
-                style: TextStyle(
-                  fontSize: 16.0,
-                ),
-                decoration: InputDecoration(
-                  icon: Icon(Icons.password),
-                  labelText: 'Senha ',
-                  hintText: 'Informe sua senha',
-                ),
-              ),
+              child:Text(_isValid ? 'E-mail Válido' : 'Email inválido')
+              // TextFormField(
+              //   validator: (String? checkpass) {
+              //     if (checkpass!.isEmpty) {
+              //       return "Pasaword deve ser preenchida";
+              //     }
+              //   },
+              //   keyboardType: TextInputType.number,
+              //   controller: _loginPassword,
+              //   obscureText: true,
+              //   obscuringCharacter: "*",
+              //   style: TextStyle(
+              //     fontSize: 16.0,
+              //   ),
+              //   decoration: InputDecoration(
+              //     icon: Icon(Icons.password),
+              //     labelText: 'Senha ',
+              //     hintText: 'Informe sua senha',
+              //   ),
+              // ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
