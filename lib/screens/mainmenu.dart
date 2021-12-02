@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:healthpayments/example/navDrawer.dart';
 import 'package:healthpayments/screens/usagehistory.dart';
 import 'package:healthpayments/screens/credits.dart';
 import 'package:healthpayments/screens/menuitem.dart';
@@ -13,14 +14,9 @@ class MainMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: NavDrawer(),
       appBar: AppBar(
         title: Text('Minha Conta'),
-        leading: const IconButton(
-          color: Colors.white,
-          onPressed: null,
-          icon: Icon(Icons.menu),
-          tooltip: 'Navigation Menu',
-        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
