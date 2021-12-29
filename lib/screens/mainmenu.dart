@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:healthpayments/example/navDrawer.dart';
+import 'package:healthpayments/components/navDrawer.dart';
 import 'package:healthpayments/screens/usagehistory.dart';
 import 'package:healthpayments/screens/credits.dart';
 import 'package:healthpayments/screens/menuitem.dart';
@@ -28,7 +28,6 @@ class MainMenu extends StatelessWidget {
               textAlign: TextAlign.left,
               style: TextStyle(
                 fontSize: 16.0,
-                //backgroundColor: Colors.green,
                 color: Colors.green,
               ),
             ),
@@ -37,7 +36,6 @@ class MainMenu extends StatelessWidget {
               //textAlign: TextAlign.left,
               style: TextStyle(
                 fontSize: 16.0,
-                //      backgroundColor: Colors.green,
                 color: Colors.green,
               ),
             ),

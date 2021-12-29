@@ -87,7 +87,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
     return Drawer(
       child: StoreConnector<AppState, User>(converter: (store) {
         return store.state.advantagePagination;
-      }, builder: (context, User currentUser) {
+        }, builder: (context, User currentUser) {
         final userLogged = currentUser != null;
         return Padding(
             padding: const EdgeInsets.all(7),

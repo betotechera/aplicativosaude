@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:healthpayments/screens/carouselfullimage.dart';
 import 'package:healthpayments/store/config.dart';
 
+
 void main() {
   runApp(HealthPay());
 }
 
 class HealthPay extends StatelessWidget {
   /// => Sets the application theme configuration by accessing the configuration file.
-  // Copyright : Alberto Techera
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

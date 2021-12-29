@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:healthpayments/screens/carouselfullimage.dart';
+import 'package:healthpayments/screens/myprofileform.dart';
 
 class NavDrawer extends StatelessWidget {
   @override
@@ -26,8 +27,8 @@ class NavDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(Icons.verified_user),
-            title: Text('Meus Dados'),
-            onTap: () => {Navigator.of(context).pop()},
+            title: Text('Meu Perfil'),
+            onTap: () => {Navigator.of(context).push(MaterialPageRoute(builder: (context) => MyProfileForm()))},
           ),
           ListTile(
             leading: Icon(Icons.credit_card),

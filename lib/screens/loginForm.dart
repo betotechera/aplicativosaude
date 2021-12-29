@@ -33,7 +33,8 @@ class _LoginFormState extends State<LoginForm> {
                 onChanged: (value) => {
                   setState (() { _isValid = EmailValidator.validate(value);
                 }),
-                }, 
+                  Text(_isValid ? 'E-mail Válido' : 'Email inválido')
+                },
                 // validator: (String? value) {
                 //   if (value != null && value.contains('@'))
                 //     return 'Do not use the @ char.';
@@ -50,26 +51,25 @@ class _LoginFormState extends State<LoginForm> {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child:Text(_isValid ? 'E-mail Válido' : 'Email inválido')
-              // TextFormField(
-              //   validator: (String? checkpass) {
-              //     if (checkpass!.isEmpty) {
-              //       return "Pasaword deve ser preenchida";
-              //     }
-              //   },
-              //   keyboardType: TextInputType.number,
-              //   controller: _loginPassword,
-              //   obscureText: true,
-              //   obscuringCharacter: "*",
-              //   style: TextStyle(
-              //     fontSize: 16.0,
-              //   ),
-              //   decoration: InputDecoration(
-              //     icon: Icon(Icons.password),
-              //     labelText: 'Senha ',
-              //     hintText: 'Informe sua senha',
-              //   ),
-              // ),
+              child:TextFormField(
+                validator: (String? checkpass) {
+                  if (checkpass!.isEmpty) {
+                    return "Password deve ser preenchida";
+                  }
+                },
+                keyboardType: TextInputType.number,
+                controller: _loginPassword,
+                obscureText: true,
+                obscuringCharacter: "*",
+                style: TextStyle(
+                  fontSize: 16.0,
+                ),
+                decoration: InputDecoration(
+                  icon: Icon(Icons.password),
+                  labelText: 'Senha ',
+                  hintText: 'Informe sua senha',
+                ),
+              ),
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
