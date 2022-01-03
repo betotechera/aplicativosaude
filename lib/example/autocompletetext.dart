@@ -19,8 +19,8 @@ class AutocompleteUser extends StatelessWidget {
 }
 
 @immutable
-class User {
-  const User({
+class UserData {
+  const UserData({
     required this.email,
     required this.name,
   });
